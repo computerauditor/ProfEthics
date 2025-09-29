@@ -1,0 +1,269 @@
+<!--
+File: index.html
+Demo single-page website for a Chartered Accountant Firm
+Complies with guidelines provided (pull model, no client names/fees, no advertising banners, confidentiality note, links to ICAI, etc.)
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dev Das & Co. — Chartered Accountants (Demo)</title>
+  <meta name="description" content="Demo website for a Chartered Accountant firm compliant with ICAI website guidelines." />
+  <style>
+    :root{--accent:#0b5ed7;--muted:#6b7280;--card-bg:#f9fafb}
+    *{box-sizing:border-box}
+    body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.5;
+  color: #0f172a;
+  margin: 0;
+  background: var(--bg, #fff); /* background will use a variable now */
+}
+    .container{max-width:1000px;padding:24px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    header h1{font-size:1.25rem;margin:0}
+    nav a{margin-left:12px;text-decoration:none;color:var(--accent)}
+    .hero{background:linear-gradient(90deg, rgba(11,94,215,0.08), rgba(11,94,215,0.02));padding:18px;border-radius:12px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    @media (max-width:720px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card-bg);padding:16px;border-radius:10px;box-shadow:0 1px 2px rgba(12,15,22,0.04)}
+    table{width:100%;border-collapse:collapse}
+    th, td{padding:8px;text-align:left;border-bottom:1px solid #e6e9ef}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none}
+    .muted{color:var(--muted);font-size:0.9rem}
+    .italic{font-style:italic}
+    footer{margin-top:28px;padding-top:18px;border-top:1px solid #eef2f7}
+    .no-ads{background:#fffbe6;border:1px solid #ffe3a7;padding:10px;border-radius:8px}
+    .hidden{display:none}
+    .photo{width:88px;height:88px;border-radius:6px;object-fit:cover;border:1px solid #dbeafe}
+    .badge{font-size:0.8rem;padding:4px 8px;border-radius:999px;background:#eef2ff;color:#0b3b94}
+    .link{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Dev Das &amp; Co. <span class="muted">Chartered Accountants (Demo)</span></h1>
+        <div class="muted">Established 2006 • Firm Registration No. CA/DEM/2006</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#team">Partners</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <!-- Theme toggle -->
+        <button class="btn" onclick="changeTheme()">Change Color</button>
+      </nav>
+    </header>
+    <!-- Div for theme toggle --> 
+    <div style="margin-top:8px; text-align:right; font-weight:bold; color:var(--accent);">
+      No Format Prescribe for Color
+    </div>
+
+    <section class="hero card">
+      <div style="display:flex;gap:16px;align-items:center">
+        <img src="photos/CA.png" alt="Firm photo" class="photo" />
+        <div>
+          <div style="font-weight:600">Dev Das &amp; Co.</div>
+          <div class="muted">Practising Chartered Accountants — Head Office: 101, Business Centre, Delhi</div>
+          <div style="margin-top:8px"><a class="btn" href="#contact">Request Information (Pull)</a></div>
+        </div>
+      </div>
+    </section>
+
+    <main style="margin-top:18px">
+      <section id="about" class="card">
+        <h2>About the Firm</h2>
+        <p class="muted">This demo site demonstrates how a Chartered Accountant firm may present particulars on its website while following the guidelines issued by the ICAI. The website operates on a <strong>pull</strong> model: details such as specific areas of experience, nature of services, number of articled assistants and assignment details are shown only after a deliberate click by the visitor.</p>
+        <div class="no-ads" style="margin-top:12px">No banner advertisements or promotional solicitations are displayed on this website.</div>
+      </section>
+
+      <section id="services" class="card" style="margin-top:12px">
+        <h2>Nature of Services Rendered & Assignments Handled (displayed on request)</h2>
+        <p class="muted">Click the button below to view permitted descriptions of services. This content is displayed only on explicit request by the visitor.</p>
+        <button class="btn" onclick="toggleVisibility('services-details')">View Services</button>
+        <div id="services-details" class="hidden" style="margin-top:12px">
+          <ul>
+            <li>Statutory &amp; Tax Audit (description only; no client names or fees)</li>
+            <li>Direct &amp; Indirect Taxation Advisory</li>
+            <li>Financial Statement Compilation &amp; Review</li>
+            <li>Regulatory Compliance Advisory</li>
+            <li>Management Accounting &amp; Internal Control Reviews</li>
+          </ul>
+          <p class="muted italic">Note: Names of clients and fees charged are not displayed on this website. Any disclosure required by a regulator would carry the regulator's name and the rule under which disclosure is made.</p>
+        </div>
+      </section>
+
+      <section id="team" class="card" style="margin-top:12px">
+        <h2>Partners</h2>
+        <p class="muted">Passport-style photographs are permitted; sample photos shown. Areas of experience are visible only on request (pull).</p>
+
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Year of Qualification</th><th>Other Qualifications</th><th>Contact</th><th>Area of Experience</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div style="display:flex;gap:8px;align-items:center">
+                  <img src="photos/dev.jpg" alt="Partner photo" style="width:48px;height:48px;border-radius:1px;object-fit:cover" />
+                  <div>Dev Das</div>
+                </div>
+              </td>
+              <td>2004</td>
+              <td>FCA, DISA</td>
+              <td class="muted">Off: +91-22-4000 0000<br/>Mob: +91-9211XXXXX<br/>dev.das@demoemail.com</td>
+              <td><button class="btn" onclick="showDetails('partner1')">View Details</button></td>
+            </tr>
+            <tr id="partner1" class="hidden"><td colspan="5">Area of experience: Statutory audits, corporate tax, forensic accounting.</td></tr>
+
+            <tr>
+              <td>
+                <div style="display:flex;gap:8px;align-items:center">
+                  <img src="photos/chull.jpg" alt="Partner photo" style="width:48px;height:48px;border-radius:1px;object-fit:cover" />
+                  <div>Chulbul Pandey</div>
+                </div>
+              </td>
+              <td>2010</td>
+              <td>FCA</td>
+              <td class="muted">Off: +91-22-4000 0001<br/>Mob: +91-98YYYYYYY<br/>c.pandey@demoemail.com</td>
+              <td><button class="btn" onclick="showDetails('partner2')">View Details</button></td>
+            </tr>
+            <tr id="partner2" class="hidden"><td colspan="5">Area of experience: Transfer pricing, international taxation, corporate restructuring.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="employees" class="card" style="margin-top:12px">
+        <h2>Professional &amp; Other Employees</h2>
+        <p class="muted">Names and designations are shown. Detailed areas of experience are available on explicit request.</p>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Name</th><th>Designation</th><th>Area of Experience</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Professional</td><td>Thanos Tonyson</td><td>Senior Manager</td><td><button class="btn" onclick="showDetails('emp1')">View</button></td></tr>
+            <tr id="emp1" class="hidden"><td colspan="4">Area of experience: Tax compliance and advisory.</td></tr>
+            <tr><td>Others</td><td>Chinnaswami Muthuswami Venugopal Iyer</td><td>Admin Executive</td><td><button class="btn" onclick="showDetails('emp2')">View</button></td></tr>
+            <tr id="emp2" class="hidden"><td colspan="4">Area of experience: Office administration and client co-ordination.</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:12px">
+          <strong>Number of articled assistants:</strong> <span class="muted">(displayed on request)</span>
+          <div style="margin-top:8px"><button class="btn" onclick="toggleVisibility('articled-number')">View Number of Articled Assistants</button></div>
+          <div id="articled-number" class="hidden" style="margin-top:8px">We currently have 7 articled assistants enrolled (as on 09-Sep-2025).</div>
+        </div>
+      </section>
+
+      <section id="vacancies" class="card" style="margin-top:12px">
+        <h2>Job Vacancies</h2>
+        <p class="muted">Opportunities for articled assistants and experienced hires — visitors may apply via the application form (pull request) below.</p>
+        <button class="btn" onclick="toggleVisibility('vacancy-form')">Apply / View Details</button>
+        <div id="vacancy-form" class="hidden" style="margin-top:12px">
+          <form onsubmit="event.preventDefault();alert('Application submitted (Demo). Our HR will contact you if shortlisted.');" aria-label="Vacancy application">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <input required placeholder="Full name" style="padding:8px;border-radius:6px;border:1px solid #e6e9ef;flex:1;min-width:200px" />
+              <input required placeholder="Email" type="email" style="padding:8px;border-radius:6px;border:1px solid #e6e9ef;flex:1;min-width:200px" />
+            </div>
+            <div style="margin-top:8px">
+              <textarea placeholder="Brief resume / qualifications" required style="width:100%;padding:8px;border-radius:6px;border:1px solid #e6e9ef" rows="4"></textarea>
+            </div>
+            <div style="margin-top:8px"><button class="btn" type="submit">Submit Application (Pull)</button></div>
+          </form>
+        </div>
+      </section>
+
+      <section id="docs" class="card" style="margin-top:12px">
+        <h2>Document Management (Demo)</h2>
+        <p class="muted">A secure, client-specific document portal may be provided in practice with login and password. Below is a mock login form; in a real deployment this would be a secure service with per-client credentials and strong encryption.</p>
+        <form onsubmit="event.preventDefault();alert('This is a demo login. In production, use HTTPS and server-side authentication.');">
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input placeholder="Client ID" required style="padding:8px;border-radius:6px;border:1px solid #e6e9ef;min-width:200px" />
+            <input placeholder="Password" type="password" required style="padding:8px;border-radius:6px;border:1px solid #e6e9ef;min-width:200px" />
+          </div>
+          <div style="margin-top:8px"><button class="btn" type="submit">Client Login (Demo)</button></div>
+        </form>
+      </section>
+
+      <section id="articles" class="card" style="margin-top:12px">
+        <h2>Articles &amp; Professional Updates</h2>
+        <p class="muted">Educational articles, bulletins and video content on matters of professional interest may be shared. Below are sample titles — each item opens on explicit click (pull).</p>
+        <ul>
+          <li><a class="link" href="#" onclick="showArticle('a1')">Understanding Recent Changes in Tax Compliance</a></li>
+          <div id="a1" class="hidden" style="margin-top:6px">Summary: Practical steps for compliance planning. <a href="#" onclick="alert('Download requested — demo only.');return false;">Download full bulletin (pull)</a>.</div>
+          <li><a class="link" href="#" onclick="showArticle('a2')">Best Practices for Internal Controls</a></li>
+          <div id="a2" class="hidden" style="margin-top:6px">Summary: Internal control frameworks and checklists for SMEs.</div>
+        </ul>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:12px">
+        <h2>Contact &amp; Office Addresses</h2>
+        <p class="muted">Head Office and branch addresses, telephone and email are displayed below as per guidelines. The website address appears on stationery (demo), and no solicitation or advertising is performed via this site.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div style="flex:1;min-width:260px">
+            <h3>Head Office</h3>
+            <div>101 Business Centre, Connaught Place, Delhi, 110001</div>
+            <div class="muted">Tel: +91-22-4000 0000 | Fax: +91-22-4000 0009</div>
+            <div class="muted">Email: info@devdas-demo.com</div>
+          </div>
+          <div style="flex:1;min-width:260px">
+            <h3>Branch Office</h3>
+            <div>202 Corporate Park, Nehru Place, Delhi, 110019</div>
+            <div class="muted">Tel: +91-20-6000 6000</div>
+            <div class="muted">Email: branch@devdas-demo.com</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <strong>Professional stationery:</strong> The website address is permitted to be mentioned on professional stationery and email signatures.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="muted">This website avoids any form of unsolicited advertising or promotional solicitation in line with the Chartered Accountants Act, 1949 and ICAI guidelines.</div>
+      <div style="margin-top:8px" class="italic">Disclosure: Names of clients and fees are not shown on this website. Any regulator-mandated disclosure will be clearly identified as such below the disclosure.</div>
+      <div style="margin-top:8px">Useful links: <a class="link" href="https://www.icai.org" target="_blank" rel="noopener">Institute of Chartered Accountants of India (ICAI)</a></div>
+      <div style="margin-top:12px" class="muted">Website address: computerauditor.xyz (replace with your domain). The Ethical Standards Board (ESB) of ICAI shall be referred in case of difficulty.</div>
+    </footer>
+  </div>
+
+  <script>
+
+    function changeTheme(){
+      // Random accent color
+      const randomAccent = "#" + Math.floor(Math.random()*16777215).toString(16);
+
+      // Random background color (lighter shades so text is still visible)
+      const randomBg = "hsl(" + Math.floor(Math.random()*360) + ", 100%, 95%)";
+
+      // Apply them
+      document.documentElement.style.setProperty('--accent', randomAccent);
+      document.documentElement.style.setProperty('--bg', randomBg);
+    }
+
+
+    function toggleVisibility(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      if(el.classList.contains('hidden')) el.classList.remove('hidden'); else el.classList.add('hidden');
+    }
+    function showDetails(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.classList.remove('hidden');
+      el.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+    function showArticle(id){
+      const el=document.getElementById(id); if(!el) return; el.classList.toggle('hidden');
+    }
+
+    // IMPORTANT: This demo intentionally does NOT include any analytics, push notifications, automated email broadcasting or social solicitation.
+    // All sensitive features (documents, detailed experience, downloads) appear only after an explicit click by the visitor (pull model).
+  </script>
+</body>
+</html>
